@@ -183,6 +183,12 @@ export default function createStore(reducer, preloadedState, enhancer) {
    */
   function dispatch(action) {
     if (!isPlainObject(action)) {
+      console.log(
+        `Redux error: actions must be plain objects. Use custom middleware for async actions.`
+      );
+      console.log(`The offending action object: `);
+      console.log(JSON.stringify(action));
+
       throw new Error(
         'Actions must be plain objects. ' +
           'Use custom middleware for async actions.'
